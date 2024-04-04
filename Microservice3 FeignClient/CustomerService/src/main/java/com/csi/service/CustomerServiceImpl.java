@@ -35,4 +35,13 @@ public class CustomerServiceImpl {
         restTemplateVo.setCustomer(customer);
         return restTemplateVo;
     }
+
+    public boolean signIn(String custEmailId,String custPassword){
+        boolean flag=false;
+        Customer customer=customerRepoImpl.findByCustEmailIdAndCustPassword(custEmailId,custPassword);
+        if(customer.getCustEmailId().equals(custEmailId) && customer.getCustPassword().equals(custPassword)){
+            flag=true;
+        }
+        return flag;
+    }
 }

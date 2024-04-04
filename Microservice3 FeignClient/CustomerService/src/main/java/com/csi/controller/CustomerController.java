@@ -29,4 +29,9 @@ public class CustomerController {
         return ResponseEntity.ok(customerServiceImpl.findBycustId(custId));
     }
 
+    @GetMapping("/signin/{custEmailId}/{custPassword}")
+    public ResponseEntity<Boolean> signIn(@PathVariable String custEmailId,@PathVariable String custPassword){
+        return ResponseEntity.ok(customerServiceImpl.signIn(custEmailId,custPassword));
+    }
+
 }
